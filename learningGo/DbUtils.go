@@ -7,17 +7,17 @@ import (
 )
 
 func main() {
-	db, err := sql.Open("mysql", "komli:komli@/PredictModel?charset=utf8")
+	db, err := sql.Open("mysql", "test:test@/test?charset=utf8")
 	checkErr(err)
-	rows, err := db.Query("SELECT pj_cron_expression FROM predictmodel_jobs")
+	rows, err := db.Query("SELECT auth_token FROM user_token")
 	checkErr(err)
 
 	for rows.Next() {
 
-		var pj_cron_expression string
-		err = rows.Scan(&pj_cron_expression)
+		var auth_token string
+		err = rows.Scan(&auth_token)
 		checkErr(err)
-		fmt.Println("pj_cron_expression", pj_cron_expression)
+		fmt.Println("auth_token", auth_token)
 	}
 
 	db.Close()
