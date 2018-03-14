@@ -1,0 +1,13 @@
+plugins {
+    id 'com.github.blindpirate.gogradle' version '0.8.1'
+}
+
+golang {
+    packagePath = 'github.com/akhileshmaurya/starting-with-go'
+ }
+
+dependencies {
+    golang {
+        build(['name':'github.com/go-sql-driver/mysql'])
+    }
+}
