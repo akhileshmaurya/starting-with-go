@@ -11,3 +11,9 @@ dependencies {
         build(['name':'github.com/go-sql-driver/mysql'])
     }
 }
+
+build {
+   targetPlatform = ['linux-386', 'windows-amd64', 'darwin-amd64']
+    //targetPlatform = ['linux-386']
+    go 'build -o ./starting-with-go_${GOOS}_${GOARCH}${GOEXE}'
+}
