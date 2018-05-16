@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"log"
 	"os"
 )
@@ -22,7 +23,6 @@ func main() {
 	if err != nil {
 		log.Println("error:", err)
 	}
-	log.Println(configuration.Groups)
-	log.Println(configuration.Users)
+	log.Println(fmt.Println("+%v", configuration))
 	log.Println("Finished")
 }

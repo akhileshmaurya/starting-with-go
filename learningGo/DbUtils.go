@@ -2,11 +2,11 @@ package main
 
 import (
 	"database/sql"
-	"fmt"
 	_ "github.com/go-sql-driver/mysql"
+	"log"
 )
 
-func main() {
+func testDbQuery() {
 	db, err := sql.Open("mysql", "test:test@/test?charset=utf8")
 	checkErr(err)
 	rows, err := db.Query("SELECT auth_token FROM user_token")
@@ -17,7 +17,7 @@ func main() {
 		var auth_token string
 		err = rows.Scan(&auth_token)
 		checkErr(err)
-		fmt.Println("auth_token", auth_token)
+		log.Println("auth_token", auth_token)
 	}
 
 	db.Close()
